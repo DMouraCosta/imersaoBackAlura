@@ -1,0 +1,9 @@
+
+npm => gerenciador de pacotes
+
+npm init es6 -y => inicia projeto js
+
+package.json = > descreve o projeto, e descreve as dependencias "tecnologias" que o projeto usa
+
+Dependencias:
+- express => 
