@@ -7,3 +7,8 @@ package.json = > descreve o projeto, e descreve as dependencias "tecnologias" qu
 
 Dependencias:
 - express => 
+- mongo db =>
+
+MongoDB => Banco baseado em docs, muito usado em projetos. fica hospedado na nuvem. 
+senha mu4GNMZ*gvmNC9n user dailson
+string de conexão = > mongodb+srv://dailson:<db_password>@cluster0.bkz7e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
