@@ -5,7 +5,15 @@ import express from "express";
 import multer from "multer";
 
 // Importa funções controladoras de posts do arquivo postController.js
-import { listarPosts, postarNovoPost, uploadImagem } from "../controllers/postController.js";
+import { atualizarNovoPost, listarPosts, postarNovoPost, uploadImagem } from "../controllers/postController.js";
+
+import cors from "cors";
+
+const corsOptions = {
+  origin: "http://localhost:8000", 
+  optionsSuccessStatus: 200
+};
+
 
 // Configuração de armazenamento Multer (específico para Windows)
 const storage = multer.diskStorage({
@@ -28,6 +36,8 @@ const routes = (app) => {
   // Habilita o parseamento de dados JSON na requisição para rotas específicas
   app.use(express.json());
 
+  app.use(cors(corsOptions));
+
   // Manipulador de requisição GET para "/posts" (provavelmente lista posts)
   app.get("/posts", listarPosts);
 
@@ -37,6 +47,8 @@ const routes = (app) => {
   // Manipulador de requisição POST para "/upload" com middleware Multer
   // Essa rota espera um arquivo chamado "imagem" no corpo da requisição
   app.post("/upload", upload.single("imagem"), uploadImagem); // Use upload.single para upload de arquivo único
+
+  app.put("/upload/:id", atualizarNovoPost);
 };
 
 // Exporta a função de rotas para uso no arquivo principal da aplicação
